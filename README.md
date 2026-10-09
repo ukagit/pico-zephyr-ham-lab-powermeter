@@ -19,7 +19,7 @@ Eigenständige Migration von [swr_power_meter_pico_micropython](https://github.c
 
 ### Vollansicht
 
-![Vollansicht](docs/images/.Full_view.png)
+![Vollansicht](docs/images/Full_view.png)
 
 
 
