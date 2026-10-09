@@ -7,7 +7,19 @@ HF-Leistungs- und SWR-Anzeige mit **Raspberry Pi Pico W / RP2040**, Zephyr, ADS1
 Kennlinien sind empirisch erfasst und aufbauabhängig; eine absolute Messgenauigkeit ist nicht nachgewiesen. Detektoren des Richtkopplers: **1N4148**. A2 unterstützt austauschbare Messköpfe mit eigenen Profilen, einschließlich OA79 bei 1 MHz. [Kennlinienprofile](docs/kennlinien-profile.md). USB-Massenspeicher ist noch nicht implementiert; JSON-Import erfolgt über USB-Shell oder Telnet.
 
 Eigenständige Migration von [swr_power_meter_pico_micropython](https://github.com/ukagit/swr_power_meter_pico_micropython), auf Basis von [pico-zephyr-hamlab 0.3.7](https://github.com/ukagit/pico-zephyr-hamlab). Das bestehende HamLab-Projekt bleibt unverändert.
+## Bildschirmansichten
 
+### Leistung und SWR
+
+![Leistung und SWR](docs/images/Watt-SWR.png)
+
+### A2-Kompaktansicht
+
+![A2-Kompaktansicht](docs/images/kompakt_a2.png)
+
+### Kennliniengrafik aus Version 0.1.30
+
+![Kennliniengrafik, historischer Stand 0.1.30](docs/images/powermeter-kennlinien-v0.1.30.png)
 ## Funktionen
 
 - Vorlauf A0−A3, Rücklauf A1−A3 und zusätzlicher Messkopf A2−A3 mit eigener ADS1115-Autorange je Kanal.
