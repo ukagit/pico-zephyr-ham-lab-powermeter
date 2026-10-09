@@ -17,9 +17,17 @@ Eigenständige Migration von [swr_power_meter_pico_micropython](https://github.c
 
 ![A2-Kompaktansicht](docs/images/kompakt_a2.png)
 
+### Vollansicht
+
+![Vollansicht](docs/images/.Full_view.png)
+
+
+
 ### Kennliniengrafik aus Version 0.1.30
 
 ![Kennliniengrafik, historischer Stand 0.1.30](docs/images/powermeter-kennlinien-v0.1.30.png)
+
+
 ## Funktionen
 
 - Vorlauf A0−A3, Rücklauf A1−A3 und zusätzlicher Messkopf A2−A3 mit eigener ADS1115-Autorange je Kanal.
