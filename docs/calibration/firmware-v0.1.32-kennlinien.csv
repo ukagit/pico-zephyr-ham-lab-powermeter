@@ -1,0 +1,61 @@
+curve,frequency_hz,adc_voltage_v,power_w,reference,source
+forward_curve,7031670,0.0556641,1.2544,Scope Vpp,power_calibration.h
+forward_curve,7031670,0.0860469,1.6384,Scope Vpp,power_calibration.h
+forward_curve,7031670,0.1380937,2.25,Scope Vpp,power_calibration.h
+forward_curve,7031670,0.179,2.7556,Scope Vpp,power_calibration.h
+forward_curve,7031670,0.2404375,4.0,Scope Vpp,power_calibration.h
+forward_curve,7031670,0.5645938,10.7584,Scope Vpp,power_calibration.h
+forward_curve,7031670,0.6690312,13.2496,Scope Vpp,power_calibration.h
+forward_curve,7031670,0.7982813,17.3056,Scope Vpp,power_calibration.h
+forward_curve,7031670,1.0539375,26.01,Scope Vpp,power_calibration.h
+forward_curve,7031670,1.3049375,37.21,Scope Vpp,power_calibration.h
+forward_curve,7031670,1.5681875,49.0,Scope Vpp,power_calibration.h
+forward_curve,7031670,1.73325,57.76,Scope Vpp,power_calibration.h
+forward_curve,7031670,1.886125,67.24,Scope Vpp,power_calibration.h
+forward_curve,7031670,2.02625,75.69,Scope Vpp,power_calibration.h
+forward_curve,7031670,2.1535,84.64,Scope Vpp,power_calibration.h
+forward_curve,7031670,2.277875,92.16,Scope Vpp,power_calibration.h
+reverse_curve_7100000,7100000,0.0530182333,1.3456,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_7100000,7100000,0.0829349,1.7424,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_7100000,7100000,0.1362760333,2.4336,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_7100000,7100000,0.2390937333,3.9469333333,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_7100000,7100000,0.5619895667,11.6512,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_7100000,7100000,0.6655833333,14.5418666667,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_7100000,7100000,0.7942083667,18.4330666667,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_7100000,7100000,1.0455833333,29.5233333333,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_7100000,7100000,1.2900625,39.69,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_7100000,7100000,1.545875,53.78,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_7100000,7100000,1.7054166667,61.8866666667,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_7100000,7100000,1.8639166667,72.82,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_7100000,7100000,1.997625,82.81,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_7100000,7100000,2.0872083333,88.99,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_50100000,50100000,0.0249869667,1.1096,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_50100000,50100000,0.0444479333,1.3768,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_50100000,50100000,0.0852552,1.9790666667,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_50100000,50100000,0.1664192667,3.1450666667,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_50100000,50100000,0.4418229333,9.2426666667,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_50100000,50100000,0.5395625,11.9258666667,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_50100000,50100000,0.6560625,15.4736,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_50100000,50100000,0.902,25.6733333333,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_50100000,50100000,1.1729375,38.44,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_50100000,50100000,1.4391458333,52.8066666667,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_50100000,50100000,1.5773958333,62.41,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_50100000,50100000,1.688,68.8966666667,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_50100000,50100000,1.6989166667,70.01,"Scope Vpp, Koppler umgedreht",power_calibration.h
+reverse_curve_50100000,50100000,1.705125,70.56,"Scope Vpp, Koppler umgedreht",power_calibration.h
+current_curve,7100000,0.0196875,1.4943,"A0, 50 Ohm",current_calibration.h
+current_curve,7100000,0.019713566667,1.4943,"A0, 50 Ohm",current_calibration.h
+current_curve,7100000,0.0394948,2.1047,"A0, 50 Ohm",current_calibration.h
+current_curve,7100000,0.056960933333,2.5869,"A0, 50 Ohm",current_calibration.h
+current_curve,7100000,0.086549466667,3.726366666667,"A0, 50 Ohm",current_calibration.h
+current_curve,7100000,0.243015633333,10.410466666667,"A0, 50 Ohm",current_calibration.h
+current_curve,7100000,0.28175,12.822733333333,"A0, 50 Ohm",current_calibration.h
+current_curve,7100000,0.3216979,16.678633333333,"A0, 50 Ohm",current_calibration.h
+current_curve,7100000,0.3851875,25.1425,"A0, 50 Ohm",current_calibration.h
+current_curve,7100000,0.436041666667,35.7654,"A0, 50 Ohm",current_calibration.h
+current_curve,7100000,0.479604166667,47.2225,"A0, 50 Ohm",current_calibration.h
+current_curve,7100000,0.502822933333,55.466933333333,"A0, 50 Ohm",current_calibration.h
+current_curve,7100000,0.525354166667,65.059266666667,"A0, 50 Ohm",current_calibration.h
+current_curve,7100000,0.543625,74.074366666667,"A0, 50 Ohm",current_calibration.h
+current_curve,7100000,0.558520816667,83.346166666667,"A0, 50 Ohm",current_calibration.h
+current_curve,7100000,0.5600625,83.346166666667,"A0, 50 Ohm",current_calibration.h

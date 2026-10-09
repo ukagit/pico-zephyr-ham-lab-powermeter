@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HamLab Powermeter</title>
+<style>body{background:#101820;color:#edf4f8;font:17px system-ui;max-width:920px;margin:auto;padding:20px}header,article{background:#203040;border-radius:14px;padding:20px;margin:15px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}.watts{font-size:64px;color:#77e1bc}small,.note{color:#bfcedb}.meter{position:relative;height:32px;background:#101820;border:1px solid #708596;border-radius:7px;overflow:hidden}.fill{height:100%;width:0;background:#77e1bc;transition:width .1s}.hold{position:absolute;top:0;bottom:0;width:4px;background:#ffd166;transform:translateX(-100%);display:none}.ticks{display:flex;justify-content:space-between;font-size:14px;color:#bfcedb;margin-top:6px}.legend{color:#ffd166}button{background:#31495d;color:#edf4f8;border:1px solid #708596;border-radius:7px;padding:10px;cursor:pointer}a{color:#77e1bc}table{width:100%;text-align:left}td{padding:7px 0}.bad{color:#ffb17b}body.compact{max-width:560px;padding:12px}body.compact .grid,body.compact article:not(:first-of-type),body.compact> a,body.compact .note,body.compact #quality,body.compact article>h2,body.compact article>p{display:none}body.compact article{margin:0;padding:16px}body.compact .watts{font-size:56px;line-height:1.2;margin-bottom:12px}body.compact .ticks{font-size:13px}body.compact .meter{cursor:pointer}body.compact header{background:none;padding:0;margin:0 0 8px}body.compact h1{font-size:16px;font-weight:500;margin:0}body.compact header small{font-size:11px;color:#bfcedb}body.compact #status{font-size:12px;color:#bfcedb;margin-top:4px}footer{margin-top:10px;font-size:13px;line-height:1.7}body.compact .compact-link{display:none}body.compact article>p.peak-label{display:block;font-size:13px;margin:8px 0 0;color:#ffd166}.swr-widget{margin-top:18px}.swr-label{font-size:16px;margin-bottom:6px}.swr-track{position:relative;height:24px;border-radius:6px;overflow:hidden;background:linear-gradient(to right,#359b65 0%,#359b65 25%,#c5a335 25%,#c5a335 50%,#b64848 50%,#b64848 100%)}.swr-marker{position:absolute;top:0;bottom:0;width:4px;background:white;transform:translateX(-100%);display:none}.swr-track.unknown{opacity:.4}.swr-peak{background:#ffd166;width:2px}.swr-help{font-size:12px;color:#bfcedb;margin-top:5px}.swr-track.unknown{opacity:1;background:#59451b}.swr-track.danger{background:repeating-linear-gradient(135deg,#9c222c 0,#9c222c 12px,#651820 12px,#651820 24px)}.swr-warning{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:white;font-size:13px;font-weight:700}.swr-help.warning{font-size:15px;font-weight:650;color:#ffd166}.swr-help.warning.danger{color:#ffb5b5}.swr-label.danger{color:#ffb5b5}.swr-track.quiet{background:#263343}.swr-track.quiet .swr-warning{display:none}.swr-marker.assumed{background:#2196ff;width:6px;transform:translateX(-50%);box-shadow:0 0 3px #111}.assumed-value{color:#64b5ff}</style></head>
+<body><header><h1>HamLab Powermeter</h1><div id="status">Verbinden …</div><small><span id="version"></span> · © DL2DBG</small></header>
+<article><h2>Vorlaufleistung</h2><div class="watts" id="power">-- W</div><div class="meter" id="bar" role="meter" aria-label="Vorlaufleistung" title="Doppelklick: Max-Hold zurücksetzen" aria-valuemin="0" aria-valuemax="10"><div class="fill" id="fill"></div><div class="hold" id="hold" title="Max-Hold"></div></div><div class="ticks"><span>0</span><span id="tick25">2,5</span><span id="tick50">5</span><span id="tick75">7,5</span><span id="tick100">10 W</span></div><p>Autoscale: <strong id="scale">10 W</strong> · <span class="legend">Gelbe Marke: Max-Hold 3 s</span></p><p class="peak-label">Max-Hold: <strong id="peak">-- W</strong></p><p id="quality"></p><div class="swr-widget"><div class="swr-label">SWR <strong id="swrbarvalue">--</strong> · Max <small id="swrbarpeak">--</small></div><div class="swr-track unknown" id="swrtrack" role="meter" aria-label="SWR" aria-valuemin="1" aria-valuemax="3"><div class="swr-warning" id="swrwarning" style="display:none"></div><div class="swr-marker" id="swrmark"></div><div class="swr-marker swr-peak" id="swrhold"></div></div><div class="ticks"><span>1</span><span>1,5</span><span>2</span><span>2,5</span><span>3+</span></div><div class="swr-help" id="swrbarstatus" role="status">Keine gültige SWR-Messung</div></div><p class="note">Vorläufige Kennlinie · 7,03167 MHz · 50 Ω · gemessen 1,25–92,16 W</p><p class="note">HF-Frequenz nicht automatisch geprüft. Kennlinie nur bei dieser Frequenz und unverändertem Messaufbau verwenden.</p></article>
+<div class="grid"><article><h2>Vorlauf A0−A3</h2><strong id="fv">-- V</strong><p id="fd" class="details"></p></article><article><h2>Rücklauf A1−A3</h2><strong id="rv">-- V</strong><p id="rd" class="details"></p></article></div>
+<article><h2>Rücklaufleistung / SWR · vorläufig</h2><p>Rücklauf: <strong id="reversepower">-- W</strong></p><p>Aktuell: <strong id="swr">--</strong> · Peak-Hold: <strong id="swrpeak">--</strong></p><p id="swrquality">Vorläufige Rücklaufkennlinie</p><button id="reset">Peak-Hold zurücksetzen</button><p id="resetstatus"></p></article><footer><small id="last">Letzte Messung: --</small><br><a class="full-link" href="/">Vollansicht</a><span class="compact-link"> · <a href="/compact">Kompaktansicht</a></span> · <a href="/compact-a2">Kompakt A2</a></footer>
+<script>
+const el=id=>document.getElementById(id);
+let currentPower=null,heldPower=null;
+function swrNotice(quality){
+ const messages={
+  invalid_power_ratio:['SWR NICHT BESTIMMBAR','Rücklauf ≥ Vorlauf: starke Fehlanpassung oder Messabweichung. Last und Anschluss prüfen.','danger'],
+  reverse_above_calibrated_range:['RÜCKLAUF ZU HOCH','SWR nicht bestimmbar: Rücklauf über der kalibrierten Messgrenze. Last und Anschluss prüfen.','danger'],
+  reverse_below_calibrated_floor:['SWR UNTER MESSGRENZE','Rücklauf unter der Kalibriergrenze. SWR ist nicht bestimmt; dies bedeutet nicht automatisch SWR 1.','caution'],
+  forward_outside_calibrated_range:['SWR NICHT BESTIMMBAR','Vorlauf außerhalb des Kalibrierbereichs oder kein ausreichendes Signal.','caution'],
+  forward_frequency_not_calibrated:['SWR NICHT KALIBRIERT','Für die gewählte Rücklauffrequenz fehlt die passende Vorlaufkalibrierung.','caution'],
+  adc_error:['SWR MESSFEHLER','ADC-Messung ungültig oder übersteuert.','danger'],
+  offline:['KEINE VERBINDUNG','Keine aktuelle SWR-Messung verfügbar.','caution'],
+  reset:['SWR WIRD AKTUALISIERT','Neue Messung abwarten.','caution']
+ };
+ return messages[quality]||['SWR NICHT BESTIMMBAR','Keine gültige SWR-Messung.','caution'];
+}
+function drawSwr(value,peak,quality){
+ const valid=Number.isFinite(value)&&value>=1;
+ const nearOne=!valid&&quality==='reverse_below_calibrated_floor';
+ const held=valid&&Number.isFinite(peak)&&peak>=1;
+ const [label,message,severity]=swrNotice(quality);
+ const quiet=!valid&&['reverse_below_calibrated_floor','forward_outside_calibrated_range','reset'].includes(quality);
+ const danger=valid?value>=3:severity==='danger';
+ el('swrtrack').classList.toggle('danger',danger);
+ el('swrwarning').textContent=valid?(value>3?'SWR > 3':''):label;
+ el('swrwarning').style.display=quiet||(valid&&value<=3)?'none':'flex';
+ el('swrbarstatus').classList.toggle('warning',(!valid&&!quiet)||danger);
+ el('swrbarstatus').classList.toggle('danger',danger);
+ el('swrbarvalue').textContent=valid?value.toFixed(2):(nearOne?'~1':'--');
+ el('swrbarpeak').textContent=held?peak.toFixed(2):'--';
+ el('swrtrack').classList.toggle('unknown',!valid&&!nearOne);
+ el('swrtrack').classList.toggle('quiet',quiet&&!nearOne);
+ el('swrmark').classList.toggle('assumed',nearOne);
+ el('swrbarvalue').classList.toggle('assumed-value',nearOne);
+ el('swrmark').style.display=valid||nearOne?'block':'none';
+ el('swrmark').style.left=(valid?Math.max(0.5,Math.min(100,(value-1)*50)):(nearOne?1:0))+'%';
+ el('swrhold').style.display=held?'block':'none';
+ el('swrhold').style.left=(held?Math.max(0.5,Math.min(100,(peak-1)*50)):0)+'%';
+ if(valid)el('swrtrack').setAttribute('aria-valuenow',Math.min(value,3));else el('swrtrack').removeAttribute('aria-valuenow');
+ el('swrtrack').setAttribute('aria-valuetext',valid?'SWR '+value.toFixed(2):(nearOne?'SWR ungefähr 1, angenommen, Rücklauf unter Messgrenze':label+'. '+message));
+ el('swrbarstatus').textContent=valid?(danger?(value>3?'SWR > 3 — Last und Anschluss prüfen.':'SWR 3 — Last und Anschluss prüfen.'):'Weiß: gemessen · Blau: ~1 angenommen · Gelb: Max-Hold 3 s'):(quiet?(quality==='reverse_below_calibrated_floor'?'Blau: ~1 angenommen · Rücklauf unter Messgrenze; kein gemessener SWR-Wert':'') :message);
+}
+function drawBar(current,peak){
+ currentPower=Number.isFinite(current)&&current>=0?current:null;
+ heldPower=Number.isFinite(peak)&&peak>=0?peak:null;
+ const largest=Math.max(currentPower??0,heldPower??0);
+ const scale=[10,20,50,100,150].find(v=>largest<=v)??150;
+ el('scale').textContent=scale+' W';
+ for(const n of [25,50,75,100])el('tick'+n).textContent=(scale*n/100).toLocaleString('de-DE')+(n===100?' W':'');
+ el('fill').style.width=(Math.min(currentPower??0,scale)/scale*100)+'%';
+ el('hold').style.display=heldPower===null?'none':'block';
+ el('hold').style.left=(Math.min(heldPower??0,scale)/scale*100)+'%';
+ el('hold').title=heldPower===null?'Max-Hold':'Max-Hold '+heldPower.toFixed(1)+' W';
+ el('bar').setAttribute('aria-valuemax',scale);
+ if(currentPower===null)el('bar').removeAttribute('aria-valuenow');else el('bar').setAttribute('aria-valuenow',currentPower);
+ el('bar').setAttribute('aria-valuetext',currentPower===null?'Keine aktuelle Messung':currentPower.toFixed(1)+' W, Max-Hold '+(heldPower===null?'unbekannt':heldPower.toFixed(1)+' W'));
+}
+if(location.pathname.startsWith('/compact'))document.body.classList.add('compact');
+function clear(){drawSwr(null,null,'offline');el('power').textContent='-- W';drawBar(null,heldPower);['swr','reversepower'].forEach(id=>el(id).textContent='--');['fv','rv'].forEach(id=>el(id).textContent='-- V');['fd','rd'].forEach(id=>el(id).textContent='');}
+async function poll(){const started=performance.now();try{const res=await fetch('/api/v1/state',{cache:'no-store',signal:AbortSignal.timeout(4000)});const x=await res.json();
+if(!res.ok||!x.measurement_valid){clear();el('status').textContent='Messfehler '+x.measurement_error;el('quality').textContent='Keine gültige Messung';}
+else{const clock=x.time;
+if(clock&&Number.isFinite(clock.last_measurement_unix_ms)) {
+ const d=new Date(clock.last_measurement_unix_ms);
+ el('last').textContent='Letzte Messung: '+d.toLocaleString('de-DE',{timeZone:'Europe/Berlin'})+' · '+clock.last_forward_w.toFixed(1)+' W · SWR '+(Number.isFinite(clock.last_swr)?clock.last_swr.toFixed(2):'--')+' · '+(clock.synced?'NTP':'NTP derzeit nicht synchronisiert');
+ el('last').title=d.toISOString()+' (UTC)';
+} else {el('last').textContent=clock&&clock.synced?'NTP synchronisiert · noch keine gültige Leistungsmessung':'Letzte Messung: -- · warte auf NTP';}
+el('status').textContent='Verbunden · '+new Date().toLocaleTimeString('de-DE');
+x.channels.forEach((c,i)=>{el(i?'rv':'fv').textContent=c.valid&&Number.isFinite(c.voltage_v)?c.voltage_v.toFixed(6)+' V':'ADC-Fehler';el(i?'rd':'fd').textContent='Raw '+c.raw+' · Bereich ±'+c.range_mv+' mV · AutoRange'+(c.overrange?' · Übersteuerung':'');});
+const p=x.power;const valid=p.forward_valid&&Number.isFinite(p.forward_w);el('power').textContent=valid?p.forward_w.toFixed(1)+' W':'-- W';drawBar(valid?p.forward_w:null,p.peak_w);el('quality').textContent=valid?'Vorläufig kalibriert':p.quality==='outside_calibrated_range'?'Unter-/oberhalb der kalibrierten Kennlinie · Rohspannung weiterhin sichtbar':'ADC-Fehler';el('peak').textContent=Number.isFinite(p.peak_w)?p.peak_w.toFixed(1)+' W':'-- W';
+const swr=x.swr;drawSwr(swr.valid?swr.value:null,swr.peak,swr.quality);el('reversepower').textContent=Number.isFinite(p.reverse_w)?p.reverse_w.toFixed(3)+' W':'-- W';el('swrquality').textContent=swr.valid?'Vorläufige Rücklaufkennlinie · umgedrehter Koppler':(swr.quality==='reverse_below_calibrated_floor'?'~1 angenommen · kein gemessener SWR-Wert':swrNotice(swr.quality)[1]);el('swr').textContent=swr.enabled&&Number.isFinite(swr.value)?swr.value.toFixed(2):(swr.quality==='reverse_below_calibrated_floor'?'~1':'--');el('swrpeak').textContent=swr.enabled&&Number.isFinite(swr.peak)?swr.peak.toFixed(2):'--';}}
+catch(e){clear();el('status').textContent='Verbindung unterbrochen';el('quality').textContent='Keine aktuelle Messung';}setTimeout(poll,Math.max(20,200-(performance.now()-started)));}
+el('reset').onclick=async()=>{el('reset').disabled=true;try{const r=await fetch('/api/v1/peak/reset',{method:'POST',signal:AbortSignal.timeout(4000)});if(!r.ok)throw Error();el('peak').textContent='-- W';el('swrpeak').textContent='--';drawBar(currentPower,null);drawSwr(null,null,'reset');el('resetstatus').textContent='Peak-Hold zurückgesetzt';}catch(e){el('resetstatus').textContent='Zurücksetzen fehlgeschlagen';}finally{el('reset').disabled=false;}};
+el('bar').ondblclick=()=>el('reset').click();
+fetch('/api/v1/info').then(r=>r.json()).then(x=>el('version').textContent='Firmware '+x.version).catch(()=>{});poll();
+</script></body></html>
